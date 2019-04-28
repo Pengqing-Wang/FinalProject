@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     void processResponse(final JSONObject response, final Double amountEntered) {
         try {
             Double exchangeRate = response.getJSONObject("quotes").getDouble("USDEUR");
-            Double
+            Double convertedAmount = 2 * exchangeRate;
             TextView output = (TextView) findViewById(R.id.output);
             output.setText(convertedAmount.toString());
         } catch (Exception e) {
