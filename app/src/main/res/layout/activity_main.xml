@@ -15,7 +15,7 @@
         android:contentDescription="TODO" />
 
     <TextView
-        android:id="@+id/enterAmount"
+        android:id="@+id/welcometext"
         android:layout_width="wrap_content"
         android:layout_height="55dp"
         android:layout_gravity="center_horizontal"

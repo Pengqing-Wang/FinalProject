@@ -23,6 +23,7 @@ package com.example.finalproject;
 public class MainActivity extends AppCompatActivity {
 
     private static RequestQueue requestQueue;
+    private static final String TAG = "Final Project main";
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -49,22 +50,15 @@ public class MainActivity extends AppCompatActivity {
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(final JSONObject response) {
-                            //Log.d(TAG, response.toString());
+                            System.out.println(response.toString());
                             processResponse(response, amountEntered);
                         }
                     }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(final VolleyError error) {
-                    //Log.d(TAG, error.toString());
+                    Log.d(TAG, error.toString());
                 }
-            }) {
-                @Override
-                public Map<String, String> getHeaders() {
-                    Map<String, String>  params = new HashMap<String, String>();
-                    params.put("Authorization", "Bearer 2c6c184d4aaaf3e76ea2e2ecbc62ad2d");
-                    return params;
-                }
-            };
+            });
             requestQueue.add(jsonObjectRequest);
         } catch (Exception e) {
             e.printStackTrace();
