@@ -11,36 +11,91 @@
         android:id="@+id/CurrencyImage"
         android:layout_width="match_parent"
         android:layout_height="190dp"
-        app:srcCompat="@drawable/currencyimage"
-        android:contentDescription="TODO" />
+        android:contentDescription="TODO"
+        app:srcCompat="@drawable/currencyimage" />
 
     <TextView
         android:id="@+id/welcometext"
         android:layout_width="wrap_content"
         android:layout_height="55dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_gravity="center_horizontal"
-        android:text="@string/amount_in_dollar"
+        android:text="@string/choose_your_currency_convertion"
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/numberEntered"
+    <RelativeLayout
+        android:id="@+id/relativelayout"
         android:layout_width="match_parent"
-        android:layout_height="57dp"
-        android:ems="10"
-        android:inputType="numberDecimal" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/convertButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/convert" />
+        <Button
+            android:id="@+id/CNY"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="60dp"
+            android:layout_marginBottom="250dp"
+            android:text="USD to CNY" />
 
-    <TextView
-        android:id="@+id/output"
-        android:layout_width="match_parent"
-        android:layout_height="72dp"
-        android:text="TextView" />
+        <Button
+            android:id="@+id/EUR"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="240dp"
+            android:layout_marginBottom="250dp"
+            android:text="USD to EUR" />
+
+        <Button
+            android:id="@+id/CAD"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="60dp"
+            android:layout_marginBottom="150dp"
+            android:text="USD to CAD" />
+
+        <Button
+            android:id="@+id/JPY"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="240dp"
+            android:layout_marginBottom="150dp"
+            android:text="USD to JPY" />
+
+        <Button
+            android:id="@+id/RUB"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="60dp"
+            android:layout_marginBottom="50dp"
+            android:text="USD to RUB" />
+
+        <Button
+            android:id="@+id/GBP"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="240dp"
+            android:layout_marginBottom="50dp"
+            android:text="USD to GBP" />
+    </RelativeLayout>
 
 </LinearLayout>

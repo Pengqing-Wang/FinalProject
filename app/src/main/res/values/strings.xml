@@ -2,4 +2,6 @@
     <string name="app_name">Final Project</string>
     <string name="convert">convert</string>
     <string name="amount_in_dollar">Amount in dollar:</string>
+    <string name="choose_your_currency_convertion">Choose your currency convertion:</string>
+    <string name="result">RESULT:</string>
 </resources>

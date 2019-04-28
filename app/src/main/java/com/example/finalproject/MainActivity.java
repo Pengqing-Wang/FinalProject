@@ -1,5 +1,6 @@
 package com.example.finalproject;
 
+        import android.content.Intent;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.util.Log;
@@ -28,52 +29,67 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestQueue = Volley.newRequestQueue(this);
         setContentView(R.layout.activity_main);
 
-        Button convert = findViewById(R.id.convertButton);
-        convert.setOnClickListener(new View.OnClickListener() {
+        cnyConvertion();
+        eurConvertion();
+        cadConvertion();
+        jpyConvertion();
+        rubConvertion();
+        gbpConvertion();
+    }
+    private void cnyConvertion() {
+        Button cnyButton = (Button) findViewById(R.id.CNY);
+        cnyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText numEntered = (EditText) findViewById(R.id.numberEntered);
-                Double amountEntered = Double.parseDouble(numEntered.getText().toString());
-                startAPICall(amountEntered);
+                startActivity(new Intent(MainActivity.this, USD_to_CNY.class));
             }
         });
     }
-    void startAPICall(final Double amountEntered) {
-        try {
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                    Request.Method.GET,
-                    "http://www.apilayer.net/api/live?access_key=2c6c184d4aaaf3e76ea2e2ecbc62ad2d",
-                    null,
-                    new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(final JSONObject response) {
-                            System.out.println(response.toString());
-                            processResponse(response, amountEntered);
-                        }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(final VolleyError error) {
-                    Log.d(TAG, error.toString());
-                }
-            });
-            requestQueue.add(jsonObjectRequest);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    private void eurConvertion() {
+        Button eurButton = (Button) findViewById(R.id.EUR);
+        eurButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, USD_to_EUR.class));
+            }
+        });
     }
-
-    void processResponse(final JSONObject response, final Double amountEntered) {
-        try {
-            Double exchangeRate = response.getJSONObject("quotes").getDouble("USDEUR");
-            Double convertedAmount = amountEntered * exchangeRate;
-            TextView output = (TextView) findViewById(R.id.output);
-            output.setText(convertedAmount.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    private void cadConvertion() {
+        Button eurButton = (Button) findViewById(R.id.CAD);
+        eurButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, USD_to_CAD.class));
+            }
+        });
     }
-
+    private void jpyConvertion() {
+        Button eurButton = (Button) findViewById(R.id.JPY);
+        eurButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, USD_to_JPY.class));
+            }
+        });
+    }
+    private void rubConvertion() {
+        Button eurButton = (Button) findViewById(R.id.RUB);
+        eurButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, USD_to_RUB.class));
+            }
+        });
+    }
+    private void gbpConvertion() {
+        Button eurButton = (Button) findViewById(R.id.GBP);
+        eurButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, USD_to_GBP.class));
+            }
+        });
+    }
 }
